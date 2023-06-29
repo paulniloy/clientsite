@@ -1,0 +1,75 @@
+.hamburger{
+    height: 35px;
+    width: 35px;
+    /* background-color: white; */
+    background: none;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.hamburger .bar, .hamburger::before, .hamburger::after{
+    display: block;
+    margin: 6px 0px;
+    border-radius: 4px;
+    content: "";
+    width: 100%;
+    border: 2px solid white;
+    transition: .4s;
+}
+
+.hamburger.isactive .bar{
+    opacity: 0;
+}
+.hamburger.isactive::after{
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+.hamburger.isactive::before{
+    transform: rotate(-45deg) translate(-5px, 5px);
+}
+
+.ball{
+    height: 100px;
+    width: 100px;
+    /* border: 50px solid red; */
+    /* outline: 5px solid white; */
+    border-top: 10px solid bisque;
+    border-left: 10px solid bisque;
+    position: absolute;
+    border-radius: 100%;
+    animation-name: round;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes round{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(1turn);
+    }
+}
+.container{
+    z-index: 2;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    opacity: 100;
+    animation-name: contain;
+    animation-timing-function: ease-in-out;
+    animation-duration: 2.5s;
+}
+@keyframes contain {
+    from{
+        opacity: 100;
+    }
+    to{
+        opacity: 0;
+    }
+}

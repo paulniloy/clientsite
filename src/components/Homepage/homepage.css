@@ -1,0 +1,10 @@
+.image-wrapper{
+    margin: 0px 60px;
+    transition: all 1s ease-in-out;
+}
+.image-wrapper img{
+    transition: all .3s ease-in-out;
+}
+.image-wrapper img:hover{
+    transform: translateY(-10px);
+}

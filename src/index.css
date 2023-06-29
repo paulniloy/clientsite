@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btnn{
+  transition: all .3s ease-in-out;
+  padding: 0px 15px;
+  color: white;
+  /* border-radius: 5px; */
+  /* border-radius: 20px 50px 20px 50px; */
+}
+.btnn:hover{
+  /* border-bottom: 2px solid rgb(255, 255, 255); */
+  /* border-top: 2px solid rgb(255, 255, 255); */
+  color: gray;
+  letter-spacing: 2px;
+  transform: scale(.90);
+}
+.blackbg{
+  background: linear-gradient(to right, black, rgb(57, 57, 57));
+  color: rgb(195, 195, 195);
+}
+/* .blackbg:hover{
+  background: linear-gradient(-45deg, gray, black, black, black, gray);
+} */
+
+.btnnn{
+  color: white;
+  border: 1px solid white;
+  padding: 10px 20px;
+  background : black;
+  transition: all .3s ease-in-out;
+}
+.btnnn:hover{
+  color: black;
+  background : white;
+  padding:10px 40px;
+}
