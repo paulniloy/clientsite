@@ -2,18 +2,32 @@ import React, { useRef } from 'react';
 // import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 import { FaMapMarkerAlt, FaPhone, FaPaperPlane } from "react-icons/fa";
+import Swal from 'sweetalert2';
+import "./contact.css"
 
 const Contact = () => {
     const form = useRef();
-
     const sendEmail = (e) => {
         e.preventDefault();
-
         emailjs.sendForm('service_2dys9er', 'template_v0k9hqe', form.current, 'VMmt5cfg3vgiAnNWP')
             .then((result) => {
                 console.log(result.text);
+                Swal.fire(
+                    'Successful',
+                    'Message has sent!',
+                    'success'
+                )
+                e.target.user_name.value = '';
+                e.target.message.value = '';
+                e.target.user_email.value = '';
+
             }, (error) => {
                 console.log(error.text);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'provide full details!',
+                })
             });
     };
     // const {
@@ -44,7 +58,7 @@ const Contact = () => {
     // }
 
     return (
-        <div className='bg-black text-white '>
+        <div className='bg-black text-white mt-10'>
             <div className='grid md:grid-cols-2 items-center justify-items-center'>
                 <div>
                     <h1 className='mb-10 font-bold text-2xl italic'>Contact info</h1>
@@ -72,7 +86,7 @@ const Contact = () => {
                         </div>
                         <div>
                             <p className='text-gray-600 italic text-xl'>Location</p>
-                            <p className='font-bold'>niloyp10@gmail.com</p>
+                            <p className='font-bold'>45/3, Bangshal, Dhaka, Bangladesh</p>
                         </div>
                     </div>
                 </div>
@@ -85,12 +99,12 @@ const Contact = () => {
                     <div>
                         <form className='flex flex-col' ref={form} onSubmit={sendEmail}>
                             <label className=''>Name</label>
-                            <input className='p-2 rounded text-black' placeholder='user_name' type="text" name="user_name" />
+                            <input required className='p-2 rounded text-black' placeholder='user_name' type="text" name="user_name" />
                             <label className='mt-5'>Email</label>
-                            <input className='p-2 rounded text-black' placeholder='user_email' type="email" name="user_email" />
+                            <input required className='p-2 rounded text-black' placeholder='user_email' type="email" name="user_email" />
                             <label className='mt-5'>Message</label>
-                            <textarea className='p-5 rounded text-black' placeholder='message' name="message" />
-                            <input className='btnnn mt-5'  type="submit" value="Send" />
+                            <textarea required className='p-5 rounded text-black' placeholder='message' name="message" />
+                            <input className='btnnn mt-5 cursor' type="submit" value="Send" />
                         </form>
                     </div>
                 </div>
