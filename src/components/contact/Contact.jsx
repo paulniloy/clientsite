@@ -1,37 +1,50 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useRef } from 'react';
+// import { useForm } from 'react-hook-form';
+import emailjs from '@emailjs/browser';
 import { FaMapMarkerAlt, FaPhone, FaPaperPlane } from "react-icons/fa";
 
 const Contact = () => {
-    const {
-        register,
-        handleSubmit,
-        watch,
-        reset,
-        formState: { errors },
-    } = useForm();
+    const form = useRef();
 
-    const onSubmit = (data) => {
-        const name = data.name;
-        const email = data.email;
-        const phone = data.phone;
-        const query = data.query;
-        console.log(name, email, phone, query);
-        const clientinfo = {
-            name, email, phone, query
-        }
-        fetch("https://portfolioserver-phi.vercel.app/client", {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(clientinfo)
-        })
-        reset();
-    }
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm('service_2dys9er', 'template_v0k9hqe', form.current, 'VMmt5cfg3vgiAnNWP')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+    };
+    // const {
+    //     register,
+    //     handleSubmit,
+    //     watch,
+    //     reset,
+    //     formState: { errors },
+    // } = useForm();
+
+    // const onSubmit = (data) => {
+    //     const name = data.name;
+    //     const email = data.email;
+    //     const phone = data.phone;
+    //     const query = data.query;
+    //     console.log(name, email, phone, query);
+    //     const clientinfo = {
+    //         name, email, phone, query
+    //     }
+    //     fetch("https://portfolioserver-phi.vercel.app/client", {
+    //         method: "POST",
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(clientinfo)
+    //     })
+    //     reset();
+    // }
 
     return (
-        <div className='bg-black text-white min-h-screen'>
+        <div className='bg-black text-white '>
             <div className='grid md:grid-cols-2 items-center justify-items-center'>
                 <div>
                     <h1 className='mb-10 font-bold text-2xl italic'>Contact info</h1>
@@ -63,33 +76,27 @@ const Contact = () => {
                         </div>
                     </div>
                 </div>
-                <div>
+                <div id='hireme' className='flex flex-col'>
                     <h1 className='mb-10 font-bold text-2xl italic'>Let's work together</h1>
                     {/* <div className="hero blackbg rounded-xl w-9/12 md:w-full">
                         <div className="hero-content flex-col lg:flex-row-reverse"> */}
-                            {/* <div className="card flex-shrink-0 shadow-2xl p-0"> */}
-                                {/* <div className="card-body "> */}
-                                    <form onSubmit={handleSubmit(onSubmit)}>
-                                        <div className="form-control mb-5">
-                                            <input type="text" {...register("name", { required: true })} placeholder="name*" className="input input-bordered text-black italic" />
-                                        </div>
-                                        <div className="form-control mb-5">
-                                            <input type="text" {...register("email", { required: true })} placeholder="email*" className="input input-bordered text-black italic" />
-                                        </div>
-                                        <div className="form-control mb-5">
-                                            <input type="number" {...register("phone", { required: true })} placeholder="contact number" className="input input-bordered text-black italic" />
-                                        </div>
-                                        <div className="form-control">
-                                            <textarea rows="10" cols="5" type="text" placeholder="query" {...register("query", { required: true })} className="input input-bordered text-black italic" />
-                                        </div>
-                                        <div className="form-control mt-6">
-                                            <button type='submit' className="btnnn flex items-center gap-2 mx-2">Send<FaPaperPlane  className='w-5 h-10'/></button>
-                                        </div>
-                                    </form>
-                                </div>
-                            {/* </div> */}
-                        {/* </div> */}
-                    {/* </div>
+                    {/* <div className="card flex-shrink-0 shadow-2xl p-0"> */}
+                    {/* <div className="card-body "> */}
+                    <div>
+                        <form className='flex flex-col' ref={form} onSubmit={sendEmail}>
+                            <label className=''>Name</label>
+                            <input className='p-2 rounded text-black' placeholder='user_name' type="text" name="user_name" />
+                            <label className='mt-5'>Email</label>
+                            <input className='p-2 rounded text-black' placeholder='user_email' type="email" name="user_email" />
+                            <label className='mt-5'>Message</label>
+                            <textarea className='p-5 rounded text-black' placeholder='message' name="message" />
+                            <input className='btnnn mt-5'  type="submit" value="Send" />
+                        </form>
+                    </div>
+                </div>
+                {/* </div> */}
+                {/* </div> */}
+                {/* </div>
                 </div> */}
             </div>
         </div>

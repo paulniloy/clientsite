@@ -24,7 +24,6 @@ import js from "../../assets/logos/js.png"
 
 
 
-
 const Homepage = () => {
     AOS.init();
     return (
@@ -123,6 +122,9 @@ const Homepage = () => {
                     </div>
                 </Marquee>
             </div> */}
+            <div>
+                <Contact></Contact>
+            </div>
 
         </div>
     );

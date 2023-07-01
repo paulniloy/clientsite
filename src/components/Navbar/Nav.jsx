@@ -33,7 +33,7 @@ const Nav = () => {
         <Link className='hover:text-gray-400 transition-all duration-300 ease-in-out mx-5 bg-black md:bg-none mt-2 md:mt-0' smooth to={"/work"}>Projects</Link>
         <Link className='hover:text-gray-400 transition-all duration-300 ease-in-out mx-5 bg-black md:bg-none mt-2 md:mt-0' smooth to={"/blog"}>Blogs</Link>
         <Link className='hover:text-gray-400 transition-all duration-300 ease-in-out mx-5 bg-black md:bg-none mt-2 md:mt-0' to={"/about"}>About</Link>
-        <Link className='hover:text-gray-400 transition-all duration-300 ease-in-out mx-5 bg-black md:bg-none mt-2 md:mt-0' to={"/hireme"}>Contact</Link>
+        <Link className='hover:text-gray-400 transition-all duration-300 ease-in-out mx-5 bg-black md:bg-none mt-2 md:mt-0' smooth to={"#hireme"}>Contact</Link>
         {/* {
             isadmin ? <Link className='btnn' to={"/admin"}>Dashboard</Link> : ""
         } */}
@@ -62,10 +62,10 @@ const Nav = () => {
                     <div className=''>
                         <div className={`fixed gap-5 z-10 bg-black text-gray-400 p-2 rounded-xl flex flex-col absolute mt-12 transition-all md:hidden duration-400 ease-in-out ${isactive ? "block left-0" : "-left-40"}`}>
                             <Link onClick={handleblur}  className='' to={"/"}>Home</Link>
-                            <Link onClick={handleblur}  className='' smooth to={"#blog"}>Blogs</Link>
-                            <Link onClick={handleblur}  className='' smooth to={"#work"}>Projects</Link>
+                            <Link onClick={handleblur}  className='' smooth to={"/blog"}>Blogs</Link>
+                            <Link onClick={handleblur}  className='' smooth to={"/work"}>Projects</Link>
                             <Link onClick={handleblur}  className='' to={"/about"}>About</Link>
-                            <Link onClick={handleblur}  className='' smooth to={"/hireme"}>Contact</Link>
+                            <Link onClick={handleblur}  className='' smooth to={"#hireme"}>Contact</Link>
                             {/* {
             isadmin ? <Link className='btnn' to={"/admin"}>Dashboard</Link> : ""
         } */}
