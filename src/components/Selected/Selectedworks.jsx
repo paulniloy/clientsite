@@ -7,6 +7,7 @@ import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Pagination, Navigation } from "swiper";
 import Tilt from 'react-parallax-tilt';
+import "./works.css"
 
 const Selectedworks = () => {
     const [scale, setScale] = useState(.85);
@@ -19,7 +20,7 @@ const Selectedworks = () => {
         }
     })
     return (
-        <div className='grid gap-10 m-5 rounded-xl' data-aos="fade-down">
+        <div className='grid gap-10 m-5  rounded-xl' data-aos="fade-down">
             <Swiper
                 slidesPerView={2}
                 spaceBetween={20}
@@ -49,15 +50,14 @@ const Selectedworks = () => {
             } */}
                 {
                     works.slice(0, 4).map(item =>
-                        <SwiperSlide>
+                        <SwiperSlide> 
                             
-                            <div className='blackbg md:h-full transition-all duration-300'>
+                            <div className='md:h-full transition-all duration-300'>
                             <Tilt transitionSpeed={3000} scale={scale}>
-
-                                <img className='w-1/2 mx-auto rounded-xl m-5' src={item.image} alt="" />
+                                <img className='w-1/2  md:block mx-auto rounded-xl m-5' src={item.image} alt="" />
                             </Tilt>
-                                <h1 className='font-bold hidden md:block text-xl m-5'><span className='italic font-medium'><span className='invisible md:visible'>Project Name :</span> </span>{item.projectName}</h1>
-                                <p className='p-2 mb-10 hidden md:block'><span className='italic font-medium'>Description : </span>{item.projectDescription.slice(0, 100)}<Link to={`/separatework/${item._id}`}><span className='text-white hover:text-blue-400 transition-all duration-400 ease-in-out font-bold italic'>...see more</span></Link></p>
+                                <h1 className='font-bold md:block text-xl m-5'>{item.projectName}</h1>
+                                <p className='p-2 mb-10 hidden md:block'><span className='italic font-medium'>Description : </span>{item.projectDescription.slice(0, 100)}<Link to={`/separatework/${item._id}`}><span className='text-blue-300 hover:text-blue-400 transition-all duration-400 ease-in-out font-bold italic'>...see more</span></Link></p>
                             </div>
                         </SwiperSlide>
                     )

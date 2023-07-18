@@ -19,7 +19,7 @@ const About = () => {
             <div className="hero min-h-screen">
                 <div className="hero-content flex-col md:flex-row">
                 <LazyLoad threshold={0.95} onContentVisible={() => {console.log('loaded!')}}>
-                    <Tilt reset={false} transitionSpeed={3000} scale={scale} glareEnable={true} glareMaxOpacity={0.8} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="20px">
+                    <Tilt transitionSpeed={3000} scale={scale} glareEnable={true} glareMaxOpacity={0.8} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius="20px">
                         <img src={image} className=" transition-all duration-500 ease-in-out max-w-sm rounded-lg shadow-2xl w-40 md:w-full" />
                         
                     </Tilt>
