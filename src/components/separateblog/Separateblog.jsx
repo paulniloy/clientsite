@@ -17,7 +17,7 @@ const Separateblog = () => {
                     <h2 className="text-4xl font-bold"><span className='italic'>Blog Title :</span> "{blog.blogName}"</h2>
                     <p className='italic p-20'><span className='italic font-medium text-2xl'>Description : </span><span className=''>{blog.blogDescription}</span></p>
                     <p className='font-bold italic m-10'>Written by : Niloy Paul</p>
-                    <Link to={"/"} className='btnnn btn'>Back</Link>
+                    <Link to={"/blog"} className='btnnn btn'>Back</Link>
                 </div>
             </div>
         </div>
