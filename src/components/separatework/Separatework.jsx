@@ -20,7 +20,7 @@ const Separatework = () => {
                         <div className='flex md:flex-row flex-col gap-10'>
                             <Link to={work.livesite} className='btn btnnn'>Live website</Link>
                             <Link to={work.github} className='btn btnnn'>Github</Link>
-                            <Link to={"/"} className='btn btnnn'>Back</Link>
+                            <Link to={"/work"} className='btn btnnn'>Back</Link>
                         </div>
                     </div>
                 </div>
